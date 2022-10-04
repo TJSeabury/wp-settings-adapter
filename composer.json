@@ -1,5 +1,5 @@
 {
-  "name": "ardent.intent/wp-settngs-adapter",
+  "name": "ardent.intent/wp-settings-adapter",
   "description": "An abstraction layer to ease the use of the Wordpress settings API.",
   "type": "library",
   "version": "0.1.0",
