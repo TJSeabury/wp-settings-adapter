@@ -1,0 +1,29 @@
+{
+  "name": "ardent.intent/wp-settngs-adapter",
+  "description": "An abstraction layer to ease the use of the Wordpress settings API.",
+  "type": "library",
+  "version": "0.1.0",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Tyler Seabury",
+      "email": "ardent.intent@pm.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ArdentIntent\\WpSettingsAdapter\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ardent.intent/blade": "^1.0.0",
+    "ardent.intent/asingleton": "^1.0",
+    "danielgsims/php-collections": "^2.2",
+    "phpunit/phpunit": "^9.5",
+    "brain/monkey": "^2.6"
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit ./src/test/"
+  }
+}
