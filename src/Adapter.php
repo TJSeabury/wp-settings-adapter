@@ -46,7 +46,7 @@ class Adapter
   /**
    * The adapter creates a new menu root page.
    */
-  public static function create(
+  public static function createPage(
     string $title,
     string $description,
     string $capability,
