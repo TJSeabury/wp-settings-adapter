@@ -5,6 +5,7 @@ namespace ArdentIntent\WpSettingsAdapter\factories;
 use ArdentIntent\WpSettingsAdapter\interfaces\SettingRenderer;
 use ArdentIntent\WpSettingsAdapter\models\SettingOptions;
 use ArdentIntent\WpSettingsAdapter\models\settings\ColorView;
+use ArdentIntent\WpSettingsAdapter\models\settings\SelectView;
 use ArdentIntent\WpSettingsAdapter\models\settings\SettingTypes;
 use ArdentIntent\WpSettingsAdapter\models\settings\TextView;
 use ArdentIntent\WpSettingsAdapter\models\settings\ToggleView;
@@ -29,6 +30,9 @@ class SettingRendererFactory
         break;
       case SettingTypes::COLOR:
         return new ColorView($options);
+        break;
+      case SettingTypes::SELECT:
+        return new SelectView($options);
         break;
       default:
         return new TextView($options);
