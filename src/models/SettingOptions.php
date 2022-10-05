@@ -2,6 +2,7 @@
 
 namespace ArdentIntent\WpSettingsAdapter\models;
 
+
 /**
  * @param PageOptions $pageOptions The root page options.
  * @param string $section (required) The slug-name of the section of the settings page in which to show the box.
@@ -23,6 +24,9 @@ class SettingOptions
   public string $title;
   public string $description;
 
+  public $defaultValue;
+  public $values;
+
   public function __construct(
     PageOptions $pageOptions,
     string $section,
@@ -40,5 +44,8 @@ class SettingOptions
     $this->options_id = "{$pageOptions->slug}_{$id}";
     $this->title = ucwords(str_replace(['_', '-'], ' ', $id));
     $this->description = $description;
+
+    $this->defaultValue = '';
+    $this->values = [];
   }
 }
