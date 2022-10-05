@@ -1,6 +1,6 @@
 # WP Settings Adapter
 
-The Settings Adapter is a declarative facade for the Wordpress Settings API. It is designed to handle the complexities behind the scenes and get out of your way so your can focus on what's really important.
+The Adapter is a declarative facade for the Wordpress Settings API. It is designed to handle the complexities behind the scenes and get out of your way so your can focus on what's really important.
 
 Disregard the tangled, putrid spaghetti and optionalize your theme or plugin with ease!
 
