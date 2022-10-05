@@ -2,7 +2,7 @@
 
 namespace ArdentIntent\WpSettingsAdapter\models;
 
-use ArdentIntent\WpSettingsAdapter\facades\settings\Setting;
+use ArdentIntent\WpSettingsAdapter\facades\Setting;
 
 class SettingCollection extends AbstractTypedArray
 {
