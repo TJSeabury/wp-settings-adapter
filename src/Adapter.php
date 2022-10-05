@@ -53,7 +53,7 @@ class Adapter
     $this->root->withSections($sections);
   }
 
-  public function Section(
+  public function createSection(
     string $id,
     string $type = 'general',
     string $description = ''
@@ -79,7 +79,7 @@ class Adapter
   /**
    * @todo Figure out how to handle sub-pages.
    */
-  public function SubPage()
+  public function createSubPage()
   {
   }
 
