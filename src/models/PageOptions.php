@@ -28,6 +28,7 @@ namespace ArdentIntent\WpSettingsAdapter\models;
 class PageOptions
 {
   public string $title;
+  public string $description;
   public string $capability;
   public string $slug;
   public string $icon;
@@ -36,6 +37,7 @@ class PageOptions
 
   public function __construct(
     string $title,
+    string $description,
     string $capability,
     string $slug,
     string $type,
@@ -43,6 +45,7 @@ class PageOptions
     int $position = null
   ) {
     $this->title = $title;
+    $this->description = $description;
     $this->capability = $capability;
     $this->slug = $slug;
     $this->type = $type;
