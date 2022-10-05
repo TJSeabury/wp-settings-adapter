@@ -13,6 +13,17 @@ class Adapter
 {
   private Page $root;
 
+  private static bool $developmentMode = false;
+
+  public static function enableDevMode(): void
+  {
+    self::$developmentMode = true;
+  }
+
+  public static function devMode()
+  {
+    return self::$developmentMode;
+  }
   protected function __construct(Page $page)
   {
     $this->blade = Blade::getInstance();

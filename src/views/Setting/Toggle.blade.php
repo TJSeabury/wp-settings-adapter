@@ -5,9 +5,10 @@
       id="{{ $id }}" 
       name="{{ $id }}" 
       value="1" 
-      {{ checked( '1', get_option( $id ) ) }} 
+      {{ checked( '1', $adapter::get( $id ) ) }} 
     >
 		<label for="{{ $id }}"></label>
 	</div>
   <p>{{ $desc }}</p>
 </div>
+@include('DevSnippet')

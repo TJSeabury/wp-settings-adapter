@@ -13,3 +13,4 @@
   name="{{$id}}" 
   value="{{ get_option( $id ) }}" 
 />
+@include('DevSnippet')

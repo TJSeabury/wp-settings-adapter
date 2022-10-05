@@ -3,9 +3,10 @@
     type="text" 
     id="{{ $id }}" 
     name="{{ $id }}" 
-    value="{{ get_option( $id ) }}" 
+    value="{{ $adapter::get( $id ) }}" 
   >
 	<p class="description">
     {{ $desc }}
   </p>
 </div>
+@include('DevSnippet')
