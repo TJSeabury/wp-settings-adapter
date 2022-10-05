@@ -113,3 +113,9 @@ global $pluginOptions;
 ])->register();
 
 ```
+
+## Development Mode
+
+You may enable development mode by invoking the following method. `Adapter::enableDevMode();`
+
+Enabling dev mode will result in the options being rendered with paste-able snippets that get the value of their respective option.
