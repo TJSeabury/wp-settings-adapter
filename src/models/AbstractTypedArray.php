@@ -105,8 +105,8 @@ extends \ArdentIntent\WpSettingsAdapter\models\ArrayObject
    * @throws InvalidArgumentException
    */
   public function offsetSet(
-    mixed $key,
-    mixed $value
+    $key,
+    $value
   ): void {
     try {
       $this->validateItem($value, $this->arrayType);
