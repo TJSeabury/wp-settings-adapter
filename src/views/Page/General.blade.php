@@ -12,11 +12,12 @@
 		{!! settings_fields( $slug ) !!}
 
 		<div class="ardent-intent-sections-wrapper">
-		@foreach ($sections as (object)$section)
-      @if ($section->callback)
+      {{-- Apperently I cannot cast $section to object?? --}}
+		@foreach ($sections as $section)
+      @if ($section['callback'])
         {!! 
           call_user_func(
-            $section->callback,
+            $section['callback'],
             $section
           ) 
         !!}
