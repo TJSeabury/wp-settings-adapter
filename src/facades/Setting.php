@@ -1,11 +1,11 @@
 <?php
 
-namespace ArdentIntent\WpSettingsAdapter\facades\settings;
+namespace ArdentIntent\WpSettingsAdapter\facades;
 
 use ArdentIntent\Blade\Blade;
 use ArdentIntent\WpSettingsAdapter\models\SettingOptions;
 use ArdentIntent\WpSettingsAdapter\interfaces\SettingRenderer;
-use ArdentIntent\WpSettingsAdapter\SettingRendererFactory;
+use ArdentIntent\WpSettingsAdapter\factories\SettingRendererFactory;
 
 /*
 Part of the Settings API. Use this to define a settings field that will show as part of a settings section inside a settings page. The fields are shown using do_settings_fields() in do_settings-sections()
@@ -56,16 +56,13 @@ class Setting
     );
   }
 
-  /**
-   * @param object $controller
-   */
-  public function register($controller)
+  public function register()
   {
     \add_settings_field(
       $this->options->options_id,
-      $this->options->display_name,
-      $this->render($controller),
-      $this->settings->pageSettings->slug,
+      $this->options->title,
+      $this->render(),
+      $this->options->pageOptions->slug,
       $this->options->section,
       [
         'section' => $this->options->section,
@@ -77,7 +74,7 @@ class Setting
     );
 
     \register_setting(
-      $this->options->pageSettings->slug,
+      $this->options->pageOptions->slug,
       $this->options->options_id
     );
   }
@@ -94,7 +91,9 @@ class Setting
       echo Blade::getInstance()->render(
         "Setting.Wrap",
         [
+          'options' => $this->options,
           'id' => $this->options->options_id,
+          'title' => $this->options->title,
           'desc' => $this->options->description,
           'class' => $class,
           'renderedSetting' => $this->view->render()
