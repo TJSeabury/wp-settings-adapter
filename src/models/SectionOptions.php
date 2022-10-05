@@ -26,8 +26,8 @@ class SectionOptions
   public function __construct(
     PageOptions $pageOptions,
     string $id,
-    string $type,
-    string $description
+    string $type = 'general',
+    string $description = ''
   ) {
     $this->pageOptions = $pageOptions;
     $this->id = $id;
