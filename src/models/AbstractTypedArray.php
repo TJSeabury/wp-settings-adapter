@@ -43,7 +43,7 @@ extends \ArdentIntent\WpSettingsAdapter\models\ArrayObject
   public function __construct(
     $input = [],
     $flags = 0,
-    $iteratorClass = ArrayIterator::class
+    $iteratorClass = \ArrayIterator::class
   ) {
     // ARRAY_TYPE must be defined.
     if (empty(static::ARRAY_TYPE)) {
