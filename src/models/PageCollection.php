@@ -2,7 +2,7 @@
 
 namespace ArdentIntent\WpSettingsAdapter\models;
 
-use ArdentIntent\WpSettingsAdapter\facades\pages\Page;
+use ArdentIntent\WpSettingsAdapter\facades\Page;
 
 class PageCollection extends AbstractTypedArray
 {
