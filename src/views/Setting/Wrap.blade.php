@@ -1,16 +1,13 @@
 <tr{{$class}}>
   
-  @if (!empty($field['args']['label_for']))
-    <th scope="row">
-      <label for="{{ esc_attr($field['args']['label_for']) }}">
-        {{ $field['title'] }}
-      </label>
-    </th>
-  @else
-    <th scope="row">{{ $field['title'] }}</th>
-  @endif
+  <th scope="row">
+    <label for="{{ $options->id }}">
+      {{ $options->title }}
+    </label>
+  </th>
 
   <td>
     {!! $renderedSetting !!}
   </td>
+
 </tr>
