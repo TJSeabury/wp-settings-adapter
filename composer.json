@@ -19,7 +19,9 @@
     "php": ">=7.4",
     "ardent.intent/blade": "^1.0.0",
     "ardent.intent/asingleton": "^1.0",
-    "danielgsims/php-collections": "^2.2",
+    "danielgsims/php-collections": "^2.2"
+  },
+  "require-dev": {
     "phpunit/phpunit": "^9.5",
     "brain/monkey": "^2.6"
   },
