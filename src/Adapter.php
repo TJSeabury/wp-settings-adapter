@@ -2,11 +2,12 @@
 
 namespace ArdentIntent\WpSettingsAdapter;
 
-use \ArdentIntent\Blade\Blade;
+use ArdentIntent\Blade\Blade;
 use ArdentIntent\WpSettingsAdapter\facades\Page;
-use ArdentIntent\WpSettingsAdapter\facades\Section;
 use ArdentIntent\WpSettingsAdapter\models\PageOptions;
-use ArdentIntent\WpSettingsAdapter\models\SectionCollection;
+use ArdentIntent\WpSettingsAdapter\facades\SubPage;
+use ArdentIntent\WpSettingsAdapter\models\SubPageOptions;
+use ArdentIntent\WpSettingsAdapter\facades\Section;
 use ArdentIntent\WpSettingsAdapter\models\SectionOptions;
 
 class Adapter
@@ -103,8 +104,24 @@ class Adapter
   /**
    * @todo Figure out how to handle sub-pages.
    */
-  public function createSubPage()
-  {
+  public function createSubPage(
+    string $title,
+    string $description,
+    string $capability,
+    string $slug,
+    string $type,
+    int $position = null
+  ): SubPage {
+    return new SubPage(new SubPageOptions(
+      $this->root->options->slug,
+      $title,
+      $description,
+      $capability,
+      $slug,
+      $type,
+      '',
+      $position
+    ));
   }
 
   /**
