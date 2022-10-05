@@ -5,20 +5,21 @@ namespace ArdentIntent\WpSettingsAdapter\facades;
 use ArdentIntent\Blade\Blade;
 use ArdentIntent\WpSettingsAdapter\models\PageOptions;
 use ArdentIntent\WpSettingsAdapter\models\SectionCollection;
-use ArdentIntent\WpSettingsAdapter\models\PageCollection;
+use ArdentIntent\WpSettingsAdapter\models\SubPageCollection;
+use Closure;
 
 class Page
 {
   public PageOptions $options;
   private SectionCollection $sections;
-  private PageCollection $subPages;
+  private SubPageCollection $subPages;
 
   public function __construct(
     PageOptions $options
   ) {
     $this->options = $options;
     $this->sections = new SectionCollection();
-    $this->subPages = new PageCollection();
+    $this->subPages = new SubPageCollection();
   }
 
   public function register(): void
@@ -26,7 +27,7 @@ class Page
     \add_action(
       'admin_menu',
       function () {
-        add_menu_page(
+        \add_menu_page(
           $this->options->title,
           $this->options->title,
           $this->options->capability,
@@ -35,6 +36,22 @@ class Page
           $this->options->icon,
           $this->options->position
         );
+
+        foreach ($this->subPages as $subPage) {
+          $subPage->register();
+        }
+      }
+    );
+
+    \add_action(
+      'admin_init',
+      function () {
+        foreach ($this->sections as $section) {
+          $section->register();
+          foreach ($section->settings as $setting) {
+            $setting->register();
+          }
+        }
       }
     );
   }
@@ -76,7 +93,7 @@ class Page
 
   public function withSubPages(array $subPages): void
   {
-    foreach (new Pagecollection($subPages) as $subPage) {
+    foreach (new SubPagecollection($subPages) as $subPage) {
       $this->subPages[] = $subPage;
     }
   }
