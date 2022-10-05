@@ -1,4 +1,4 @@
-<div class="vulcan-toggle">
+<div class="wp-settings-adapter-toggle">
 	<div class="slidebox">
 		<input 
       type="checkbox" 
@@ -9,5 +9,5 @@
     >
 		<label for="{{ $id }}"></label>
 	</div>
+  <p>{{ $desc }}</p>
 </div>
-<p>{{ $desc }}</p>
