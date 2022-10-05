@@ -15,7 +15,7 @@ class ColorView implements SettingRenderer
 
   public function render()
   {
-    echo Blade::getInstance()->render(
+    return Blade::getInstance()->render(
       "Setting.Color",
       [
         'id' => $this->options->options_id,

@@ -15,7 +15,7 @@ class ToggleView implements SettingRenderer
 
   public function render()
   {
-    echo Blade::getInstance()->render(
+    return Blade::getInstance()->render(
       "Setting.Toggle",
       [
         'id' => $this->options->options_id,

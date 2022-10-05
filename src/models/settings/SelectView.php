@@ -15,11 +15,13 @@ class SelectView implements SettingRenderer
 
   public function render()
   {
-    echo Blade::getInstance()->render(
+    return Blade::getInstance()->render(
       "Setting.Select",
       [
+        'options' => $this->options,
         'id' => $this->options->options_id,
         'desc' => $this->options->description,
+        'optionValue' => get_option($this->options->options_id)
       ]
     );
   }
