@@ -26,6 +26,7 @@ class Adapter
    */
   public static function create(
     string $title,
+    string $description,
     string $capability,
     string $slug,
     string $type,
@@ -34,6 +35,7 @@ class Adapter
   ): Adapter {
     return new Adapter(new Page(new PageOptions(
       $title,
+      $description,
       $capability,
       $slug,
       $type,
