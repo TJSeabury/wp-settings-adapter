@@ -43,13 +43,13 @@ class Section
 
       if (
         !isset($wp_settings_fields)
-        || !isset($wp_settings_fields[$this->pageOptions->slug])
-        || !isset($wp_settings_fields[$this->pageOptions->slug][$this->settings->title])
+        || !isset($wp_settings_fields[$this->options->pageOptions->slug])
+        || !isset($wp_settings_fields[$this->options->pageOptions->slug][$this->options->id])
       ) {
         return;
       }
 
-      $type = ucwords($this->settings->type);
+      $type = ucwords($this->options->type);
       $viewName = "Section.{$type}";
 
       echo Blade::getInstance()->render(
