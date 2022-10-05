@@ -21,21 +21,9 @@ class Page
     $this->subPages = new PageCollection();
   }
 
-  public function register()
+  public function register(): void
   {
-    add_action(
-      'admin_init',
-      function () {
-        foreach ($this->sections as $section) {
-          $section->register();
-          foreach ($section->settings as $setting) {
-            $setting->register();
-          }
-        }
-      }
-    );
-
-    add_action(
+    \add_action(
       'admin_menu',
       function () {
         add_menu_page(
@@ -51,7 +39,7 @@ class Page
     );
   }
 
-  private function render()
+  private function render(): Closure
   {
     return function () {
       global $wp_settings_sections;
