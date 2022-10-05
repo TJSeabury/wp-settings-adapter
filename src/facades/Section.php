@@ -84,6 +84,7 @@ class Section
       $this->options->id,
       $id,
       SettingTypes::TEXT,
+      true,
       $description
     ));
   }
