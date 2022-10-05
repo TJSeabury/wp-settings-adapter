@@ -3,7 +3,6 @@
 namespace ArdentIntent\WpSettingsAdapter\models\settings;
 
 use ArdentIntent\WpSettingsAdapter\facades\Setting;
-use ArdentIntent\WpSettingsAdapter\factories\SettingRendererFactory;
 use ArdentIntent\WpSettingsAdapter\models\settings\SettingTypes;
 
 class TypeHelper
