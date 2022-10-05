@@ -62,11 +62,12 @@ class Section
     };
   }
 
-  public function withSettings(array $settings)
+  public function withSettings(array $settings): Section
   {
     foreach (new SettingCollection($settings) as $setting) {
       $this->settings[] = $setting;
     }
+    return $this;
   }
 
   /**
