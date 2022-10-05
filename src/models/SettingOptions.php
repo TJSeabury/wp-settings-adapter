@@ -19,6 +19,7 @@ class SettingOptions
   public string $group;
   public string $id;
   public string $type;
+  public bool $label;
   public string $options_group;
   public string $options_id;
   public string $title;
@@ -33,13 +34,15 @@ class SettingOptions
     string $group,
     string $id,
     string $type,
-    string $description
+    bool $label = true,
+    string $description = ''
   ) {
     $this->pageOptions = $pageOptions;
     $this->section = $section;
     $this->group = $group;
     $this->id = $id;
     $this->type = $type;
+    $this->label = $label;
     $this->options_group = "{$pageOptions->slug}_{$group}";
     $this->options_id = "{$pageOptions->slug}_{$id}";
     $this->title = ucwords(str_replace(['_', '-'], ' ', $id));
