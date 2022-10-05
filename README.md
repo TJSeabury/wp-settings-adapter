@@ -10,50 +10,106 @@ Disregard the tangled, putrid spaghetti and optionalize your theme or plugin wit
 use \ArdentIntent\WpSettingsAdapter\Adapter;
 
 global $pluginOptions;
-$pluginOptions = Adapter::create(
-  'Adapter Test',
-  'This is the root options page description.',
+($pluginOptions = Adapter::createPage(
+  'Theme Options',
+  'Not spaghetti.',
   'manage_options',
   'adapter-test',
   'general',
-  'dashicon-flag',
+  'dashicons-flag',
   2
-);
+))->withSections([
 
-($general = $pluginOptions->createSection('general'))->withSettings([
-  $general->createSetting(
-    'test-1',
-    'An example text setting description.'
-  )->ofType()->text(),
-  $general->createSetting('test-2')->ofType()->color(),
-  $general->createSetting('test-5')->ofType()->text(),
-]);
+  ($general = $pluginOptions->createSection('general'))->withSettings([
 
-($special = $pluginOptions->createSection('special'))->withSettings([
+    $general->createSetting(
+      'test-1',
+      'An example text setting description.'
+    )->ofType()->text(),
 
-  $special->createSetting(
-    'test-6',
-    'A short description of this setting.'
-  )->ofType()->text(),
+    $general->createSetting('test-2')->ofType()->color(),
 
-  $special->createSetting(
-    'test-3',
-    'An example select setting.'
-  )->ofType()->select()->withValues([
-    'apple' => 'Apple',
-    'pear' => 'Pear',
-    'pineapple' => 'Pineapple'
+    $general->createSetting('test-5')->ofType()->text(),
+
   ]),
 
-  $special->createSetting('test-4')->ofType()->toggle(),
+  ($special = $pluginOptions->createSection('special'))->withSettings([
 
-]);
+    $special->createSetting(
+      'test-6',
+      'A short description of this setting.'
+    )->ofType()->text(),
 
-$pluginOptions->withSections([
-  $general,
-  $special
-]);
+    $special->createSetting(
+      'test-3',
+      'An example select setting.'
+    )->ofType()->select()->withValues([
+      'apple' => 'Apple',
+      'pear' => 'Pear',
+      'pineapple' => 'Pineapple'
+    ]),
 
-$pluginOptions->register();
+    $special->createSetting('test-4')->ofType()->toggle(),
+
+  ])
+
+])->withSubPages([
+
+  ($subPageOne = $pluginOptions->createSubPage(
+    'Subpage One',
+    'An example sub-page.',
+    'manage_options',
+    'adapter-test-sub-one',
+    'general',
+    1
+  ))->withSections([
+
+    ($general = $subPageOne->createSection('general'))->withSettings([
+
+      $general->createSetting('general-1')->ofType()->toggle(),
+
+      $general->createSetting('general-2')->ofType()->select()->withValues([
+        'go',
+        'touch',
+        'grass'
+      ])
+
+    ]),
+
+    ($social = $subPageOne->createSection('social'))->withSettings([
+
+      $general->createSetting('social-1', 'Social link 1.')->ofType()->text(),
+
+      $general->createSetting('social-2', 'Social link 2.')->ofType()->text(),
+
+      $general->createSetting('social-3')->ofType()->select()->withValues([
+        'on' => 'On',
+        'off' => 'Off'
+      ])
+
+    ])
+
+  ]),
+
+  ($subPageTwo = $pluginOptions->createSubPage(
+    'Subpage Two',
+    'An example sub-page.',
+    'manage_options',
+    'adapter-test-sub-two',
+    'general',
+    2
+  ))->withSections([
+
+    ($whatever = $subPageTwo->createSection('whatever'))->withSettings([
+
+      $whatever->createSetting('what', 'Life is suffering.')->ofType()->toggle(),
+
+      $whatever->createSetting('ever', 'No one understands me.')->ofType()->toggle()
+
+    ])
+
+  ])
+
+])->register();
 
 ```
