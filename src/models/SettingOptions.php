@@ -20,7 +20,7 @@ class SettingOptions
   public string $type;
   public string $options_group;
   public string $options_id;
-  public string $display_name;
+  public string $title;
   public string $description;
 
   public function __construct(
@@ -38,7 +38,7 @@ class SettingOptions
     $this->type = $type;
     $this->options_group = "{$pageOptions->slug}_{$group}";
     $this->options_id = "{$pageOptions->slug}_{$id}";
-    $this->display_name = ucwords(str_replace(['_', '-'], ' ', $id));
+    $this->title = ucwords(str_replace(['_', '-'], ' ', $id));
     $this->description = $description;
   }
 }
