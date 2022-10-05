@@ -1,4 +1,4 @@
-<tr{{$class}}>
+<tr class="wp-settings-adapter-row">
   
   <th scope="row">
     <label for="{{ $options->id }}">
@@ -7,7 +7,7 @@
   </th>
 
   <td>
-    {!! $renderedSetting !!}
+    {!! $view->render() !!}
   </td>
 
 </tr>
