@@ -3,7 +3,7 @@
 namespace ArdentIntent\WpSettingsAdapter\facades;
 
 use ArdentIntent\Blade\Blade;
-use ArdentIntent\WpSettingsAdapter\facades\settings\Setting;
+use ArdentIntent\WpSettingsAdapter\facades\Setting;
 use ArdentIntent\WpSettingsAdapter\models\SectionOptions;
 use ArdentIntent\WpSettingsAdapter\models\SettingCollection;
 use ArdentIntent\WpSettingsAdapter\models\SettingOptions;
