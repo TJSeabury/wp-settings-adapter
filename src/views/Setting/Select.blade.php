@@ -1,8 +1,11 @@
 <div class="select-field">
-  <select name="" id="">
-    @foreach ($values as $value)
-      <option value="{{ $value }}">
-        {{ str_replace }}
+  <select name="{{$id}}" id="{{$id}}">
+    @foreach ($options->values as $key => $value)
+      <option 
+        value="{{ $key }}"
+        {{ selected( $optionValue, $key ) }}
+      >
+        {{ ucwords(str_replace(['_', '-'], ' ', $value)) }}
       </option>
     @endforeach
   </select>
