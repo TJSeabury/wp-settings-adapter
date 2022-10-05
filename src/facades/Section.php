@@ -12,8 +12,7 @@ use ArdentIntent\WpSettingsAdapter\models\settings\SettingTypes;
 class Section
 {
   private SectionOptions $options;
-
-  private SettingCollection $settings;
+  public SettingCollection $settings;
 
   public function __construct(
     SectionOptions $options
