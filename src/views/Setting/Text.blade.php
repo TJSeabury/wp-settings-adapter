@@ -5,11 +5,7 @@
     name="{{ $id }}" 
     value="{{ get_option( $id ) }}" 
   >
-	<p>
-    <label 
-      for="{{ $id }}"
-    >
+	<p class="description">
     {{ $desc }}
-    </label>
   </p>
 </div>
