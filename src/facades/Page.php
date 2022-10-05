@@ -28,8 +28,8 @@ class Page
       function () {
         foreach ($this->sections as $section) {
           $section->register();
-          foreach ($section->fields as $field) {
-            $field->register();
+          foreach ($section->settings as $setting) {
+            $setting->register();
           }
         }
       }
@@ -39,13 +39,13 @@ class Page
       'admin_menu',
       function () {
         add_menu_page(
-          $this->settings->title,
-          $this->settings->title,
-          $this->settings->capability,
-          $this->settings->slug,
+          $this->options->title,
+          $this->options->title,
+          $this->options->capability,
+          $this->options->slug,
           $this->render(),
-          $this->settings->icon,
-          $this->settings->position
+          $this->options->icon,
+          $this->options->position
         );
       }
     );
@@ -56,23 +56,24 @@ class Page
     return function () {
       global $wp_settings_sections;
 
-      if (!isset($wp_settings_sections[$this->settings->slug])) {
+      if (!isset($wp_settings_sections[$this->options->slug])) {
         return;
       }
 
-      if (!current_user_can($this->settings->capability)) {
+      if (!current_user_can($this->options->capability)) {
         return;
       }
 
-      $type = ucwords($this->settins->type);
+      $type = ucwords($this->options->type);
       $viewName = "Page.{$type}";
 
       echo Blade::getInstance()->render(
         $viewName,
         [
-          'title' => $this->settings->title,
-          'slug' => $this->settings->slug,
-          'sections' => $wp_settings_sections,
+          'title' => $this->options->title,
+          'slug' => $this->options->slug,
+          'description' => $this->options->description,
+          'sections' => $wp_settings_sections[$this->options->slug],
         ]
       );
     };
