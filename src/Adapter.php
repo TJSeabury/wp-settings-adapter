@@ -70,9 +70,10 @@ class Adapter
    * Register sections to the adapter's root page.
    * The sections should contain registered setting fields.
    */
-  public function withSections(array $sections): void
+  public function withSections(array $sections): Adapter
   {
     $this->root->withSections($sections);
+    return $this;
   }
 
   public function createSection(
@@ -93,9 +94,10 @@ class Adapter
    * The sub-pages should contain registered sections
    * with their respective registered setting fields.
    */
-  public function withSubPages(array $subPages): void
+  public function withSubPages(array $subPages): Adapter
   {
     $this->root->withSubPages($subPages);
+    return $this;
   }
 
   /**
