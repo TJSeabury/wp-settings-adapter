@@ -11,7 +11,7 @@ abstract class AbstractEnum
 {
   private static $constCacheArray = NULL;
 
-  private static function getConstants()
+  private static function getConstants(): array
   {
     if (self::$constCacheArray == NULL) {
       self::$constCacheArray = [];
@@ -22,6 +22,11 @@ abstract class AbstractEnum
       self::$constCacheArray[$calledClass] = $reflect->getConstants();
     }
     return self::$constCacheArray[$calledClass];
+  }
+
+  public static function asArray(): array
+  {
+    return self::getConstants();
   }
 
   public static function isValidName($name, $strict = false)
