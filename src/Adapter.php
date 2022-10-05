@@ -102,7 +102,7 @@ class Adapter
   }
 
   /**
-   * @todo Figure out how to handle sub-pages.
+   * Create a SubPage associated with this root page.
    */
   public function createSubPage(
     string $title,
