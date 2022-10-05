@@ -69,18 +69,21 @@ class Section
     }
   }
 
-  public function Setting(
-    string $group,
+  /**
+   * Create a new Setting associated with this section.
+   * The default SettingType is text.
+   * A different type may be set by invoking ->ofType()->{TYPE}(); 
+   */
+  public function createSetting(
     string $id,
-    string $type = SettingTypes::TEXT,
     string $description = ''
   ): Setting {
     return new Setting(new SettingOptions(
       $this->options->pageOptions,
       $this->options->id,
-      $group,
+      $this->options->id,
       $id,
-      $type,
+      SettingTypes::TEXT,
       $description
     ));
   }
