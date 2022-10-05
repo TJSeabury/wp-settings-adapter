@@ -13,11 +13,12 @@ class TextView implements SettingRenderer
     $this->options = $options;
   }
 
-  public function render()
+  public function render(): string
   {
-    echo Blade::getInstance()->render(
+    return Blade::getInstance()->render(
       "Setting.Text",
       [
+        'options' => $this->options,
         'id' => $this->options->options_id,
         'desc' => $this->options->description,
       ]
