@@ -24,6 +24,17 @@ class Adapter
   {
     return self::$developmentMode;
   }
+
+  private static array $optionCache = [];
+
+  public static function get($option_id)
+  {
+    if (!array_key_exists($option_id, self::$optionCache)) {
+      self::$optionCache[$option_id] = get_option($option_id);
+    }
+    return self::$optionCache[$option_id];
+  }
+
   protected function __construct(Page $page)
   {
     $this->blade = Blade::getInstance();
